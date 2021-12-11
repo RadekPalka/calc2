@@ -4,6 +4,7 @@ const operationBtns = document.querySelectorAll('button.operation');
 const pAct = document.querySelector('p.act');
 const equalBtn = document.querySelector('button.equal')
 const refreshBtn = document.querySelector('button.refresh')
+const ceBtn = document.querySelector('button.ce')
 
 let number1;
 let number2;
@@ -64,6 +65,12 @@ const refresh= ()=>{
   input.textContent="0"
 }
 
+const handleCeBtn= ()=> {
+  input.textContent="0"
+  if (pAct.textContent.includes("=")) refresh()
+}
+
+ceBtn.addEventListener('click', handleCeBtn)
 refreshBtn.addEventListener('click', refresh)
 equalBtn.addEventListener('click', handleEqualBtn)
 operationBtns.forEach((btn) => btn.addEventListener('click', operation));
