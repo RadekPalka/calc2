@@ -3,6 +3,7 @@ const input = document.querySelector('p.input');
 const operationBtns = document.querySelectorAll('button.operation');
 const pAct = document.querySelector('p.act');
 const equalBtn = document.querySelector('button.equal')
+const refreshBtn = document.querySelector('button.refresh')
 
 let number1;
 let number2;
@@ -54,7 +55,16 @@ const handleEqualBtn = ()=>{
   }
 
 }
+const refresh= ()=>{
+  number1= null
+  number2= null
+  sign= null
+  result= null
+  pAct.textContent=""
+  input.textContent="0"
+}
 
+refreshBtn.addEventListener('click', refresh)
 equalBtn.addEventListener('click', handleEqualBtn)
 operationBtns.forEach((btn) => btn.addEventListener('click', operation));
 numBtns.forEach((btn) => btn.addEventListener('click', addNumber));
