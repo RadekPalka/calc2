@@ -62,8 +62,14 @@ const handleEqualBtn = () => {
 			result = (parseFloat(number1) - parseFloat(number2)).toString();
 		else if (sign === '*')
 			result = (parseFloat(number1) * parseFloat(number2)).toString();
-		else if (sign === '/')
+		else if (sign === '/'){
+      if (number2==='0'){
+        refresh()
+        return input.textContent="Niepoprawne działanie"
+      }
 			result = (parseFloat(number1) / parseFloat(number2)).toString();
+      
+    }
 		input.textContent = result;
 		pAct.textContent = `${number1} ${sign} ${number2} =`;
 		number1 = result;
