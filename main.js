@@ -5,6 +5,7 @@ const pAct = document.querySelector('p.act');
 const equalBtn = document.querySelector('button.equal')
 const refreshBtn = document.querySelector('button.refresh')
 const ceBtn = document.querySelector('button.ce')
+const deleteBtn= document.querySelector('button.delete')
 
 let number1;
 let number2;
@@ -70,6 +71,12 @@ const handleCeBtn= ()=> {
   if (pAct.textContent.includes("=")) refresh()
 }
 
+const handleDeleteBtn= ()=>{
+  if (input.textContent !=="0" && pAct.textContent.includes("=")=== false) input.textContent= input.textContent.slice(0, -1)
+  if (input.textContent.length ===0) input.textContent= "0"
+}
+
+deleteBtn.addEventListener('click', handleDeleteBtn)
 ceBtn.addEventListener('click', handleCeBtn)
 refreshBtn.addEventListener('click', refresh)
 equalBtn.addEventListener('click', handleEqualBtn)
