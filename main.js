@@ -7,6 +7,7 @@ const refreshBtn = document.querySelector('button.refresh');
 const ceBtn = document.querySelector('button.ce');
 const deleteBtn = document.querySelector('button.delete');
 const dotBtn = document.querySelector('button.dot')
+const plusMinusBtn = document.querySelector('button.minus')
 
 let number1;
 let number2;
@@ -88,6 +89,15 @@ const addDot= ()=>{
   }
 }
 
+const handlePlusMinusBtn= ()=>{
+  
+  if (pAct.textContent.includes('=')===false && input.textContent[0]!== "0"){
+    console.log("ok")
+    input.textContent.includes("-")=== true? input.textContent= input.textContent.substr(1): input.textContent= "-"+ input.textContent
+  }
+}
+
+plusMinusBtn.addEventListener('click', handlePlusMinusBtn)
 dotBtn.addEventListener('click', addDot)
 deleteBtn.addEventListener('click', handleDeleteBtn);
 ceBtn.addEventListener('click', handleCeBtn);
