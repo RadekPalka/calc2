@@ -3,7 +3,7 @@ body {
 	background-color: black;
 }
 
-#calc {
+.calc {
 	position: fixed;
 
 	background-color: rgb(25, 25, 25);
@@ -63,9 +63,9 @@ button:hover {
 .operation {
 	background-color: rgb(10, 10, 10);
 }
-#equal {
+.equal {
 	background-color: darkcyan;
 }
-#equal:hover {
+.equal:hover {
 	background-color: cyan;
 }
