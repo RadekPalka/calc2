@@ -8,6 +8,7 @@ const ceBtn = document.querySelector('button.ce');
 const deleteBtn = document.querySelector('button.delete');
 const dotBtn = document.querySelector('button.dot')
 const plusMinusBtn = document.querySelector('button.minus')
+const fractionBtn = document.querySelector('button.fraction')
 
 let number1;
 let number2;
@@ -24,7 +25,7 @@ const refresh = () => {
 };
 
 const addNumber = (el) => {
-  if (pAct.textContent.includes('=')) refresh()
+  if (pAct.textContent.includes('=') || pAct.textContent.includes('(')) refresh()
 	const number = el.path[0].textContent;
 	if (input.textContent === '0') input.textContent = '';
 
@@ -82,8 +83,8 @@ const handleDeleteBtn = () => {
 };
 
 const addDot= ()=>{
-  if (!input.textContent.includes(".") && !pAct.textContent.includes('=')) input.textContent +="."
-  else if (pAct.textContent.includes('=')) {
+  if (!input.textContent.includes(".") && !pAct.textContent.includes('=') && !pAct.textContent.includes('(')) input.textContent +="."
+  else if (pAct.textContent.includes('=') || pAct.textContent.includes('(')) {
     refresh()
     input.textContent= "0."
   }
@@ -91,12 +92,24 @@ const addDot= ()=>{
 
 const handlePlusMinusBtn= ()=>{
   
-  if (pAct.textContent.includes('=')===false && input.textContent[0]!== "0"){
+  if (pAct.textContent.includes('=')===false && parseFloat(input.textContent)!==0 && pAct.textContent.includes('(')=== false){
     console.log("ok")
     input.textContent.includes("-")=== true? input.textContent= input.textContent.substr(1): input.textContent= "-"+ input.textContent
   }
 }
 
+const handleFractionBtn= ()=>{
+  handleEqualBtn()
+  console.log(input.textContent)
+  
+  if (parseFloat(input.textContent)!==0){
+    result= (1/parseFloat(input.textContent))
+    console.log(input.textContent)
+    pAct.textContent=`1/ (${input.textContent}) `
+    input.textContent= result
+  }
+}
+fractionBtn.addEventListener('click', handleFractionBtn)
 plusMinusBtn.addEventListener('click', handlePlusMinusBtn)
 dotBtn.addEventListener('click', addDot)
 deleteBtn.addEventListener('click', handleDeleteBtn);
