@@ -52,9 +52,7 @@ button {
 	color: white;
 	outline: none;
 }
-button:hover {
-	background-color: darkgrey;
-}
+
 
 .row {
 	margin-left: 6px;

@@ -1,0 +1,28 @@
+{
+  "name": "Kalkulator",
+  "short_name": "Calc",
+  "start_url": "index.html",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3f51b5",
+  
+  "dir": "ltr",
+  "lang": "pl",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "calc.png",
+      "type": "image/png",
+      "sizes": "32*32"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.come/store/apps/details?id=com.example.app1",
+      "id": "com.example.app1"
+    }
+  ]
+  
+}

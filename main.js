@@ -15,6 +15,17 @@ let number2;
 let sign;
 let result;
 
+async function registerSw(){
+	if ('serviceWorker' in navigator){
+		try{
+			await navigator.serviceWorker.register('sw.js')
+		}
+		catch(e){
+			console.log("Nie udało się załadować serviceworkera")
+		}
+	}
+}
+
 const refresh = () => {
 	number1 = null;
 	number2 = null;
@@ -115,6 +126,7 @@ const handleFractionBtn= ()=>{
     input.textContent= result
   }
 }
+window.addEventListener("load", registerSw)
 fractionBtn.addEventListener('click', handleFractionBtn)
 plusMinusBtn.addEventListener('click', handlePlusMinusBtn)
 dotBtn.addEventListener('click', addDot)
